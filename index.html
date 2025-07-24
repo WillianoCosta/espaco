@@ -1,124 +1,159 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Espaço Equilíbrio Mental - Psicóloga Albaniza Gomes</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/logo.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
                 <img src="logops.png" alt="Logo Espaço Equilíbrio Mental">
-                <h1>Espaço Equilíbrio Mental</h1>
             </div>
             <nav>
-                <ul class="nav-list">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#sobre">Sobre Mim</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                <ul class="nav-links">
+                    <li><a href="#hero">Início</a></li>
+                    <li><a href="#about">Sobre Mim</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#contact">Contato</a></li>
                 </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
             </nav>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="hero-overlay">
-                <div class="container">
-                    <h2>Bem-vindo ao seu espaço de cuidado e transformação.</h2>
-                    <p>Encontre apoio para sua jornada em busca de mais bem-estar e equilíbrio.</p>
-                    <a href="#contato" class="btn-primary">Agende sua Consulta</a>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Bem-vindo ao Espaço Equilíbrio Mental</h1>
+                    <p>Cuidando da sua saúde mental com profissionalismo e dedicação.</p>
+                    <a href="#contact" class="btn">Agende sua Consulta</a>
                 </div>
             </div>
         </section>
 
-        <section id="sobre" class="about">
+        <section id="about" class="about-section">
             <div class="container">
                 <div class="about-content">
-                    <div class="about-text">
-                        <h2>Sobre a Psicóloga Albaniza Gomes</h2>
-                        <p>Olá! Sou Albaniza Gomes, psicóloga clínica com o compromisso de promover o bem-estar e o desenvolvimento pessoal. Minha jornada profissional é pautada pela ética, empatia e busca constante por conhecimento.</p>
-                        <p>Sou **pós-graduada em Terapia Cognitivo Comportamental (TCC)**, uma abordagem eficaz e cientificamente comprovada para tratar diversas questões emocionais e psicológicas. Além disso, possuo graduação em **Análise do Comportamento Aplicada (ABA)**, o que me permite uma visão abrangente do comportamento humano e suas interações.</p>
-                        <p>Meu **CRP: 17/4219** garante a seriedade e o profissionalismo do meu trabalho. Acredito que cada indivíduo possui um potencial único de crescimento e que, com o apoio adequado, é possível superar desafios, desenvolver novas habilidades e construir uma vida mais plena e satisfatória.</p>
-                        <p>No Espaço Equilíbrio Mental, você encontrará um ambiente acolhedor e seguro para explorar suas questões, trabalhar seus pensamentos e emoções, e trilhar o caminho para o seu equilíbrio.</p>
-                    </div>
                     <div class="about-image">
                         <img src="psicologa.png" alt="Psicóloga Albaniza Gomes">
                     </div>
+                    <div class="about-text">
+                        <h2>Sobre a Psicóloga Albaniza Gomes</h2>
+                        <p>Olá! Sou Albaniza Gomes, psicóloga clínica apaixonada por auxiliar as pessoas a encontrarem seu equilíbrio e bem-estar.</p>
+                        <p>Sou pós-graduada em **Terapia Cognitiva Comportamental (TCC)**, uma abordagem eficaz e cientificamente comprovada para lidar com diversas questões emocionais e comportamentais. Além disso, sou graduada em **Análise do Comportamento Aplicada (ABA)**, o que me permite uma visão abrangente e estratégias personalizadas para cada paciente.</p>
+                        <p>Meu compromisso é oferecer um atendimento ético, acolhedor e personalizado, focado nas suas necessidades e objetivos. Acredito que o autoconhecimento é a chave para uma vida mais plena e feliz.</p>
+                        <p><strong>CRP: 17/4219</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="servicos" class="services">
+        <section id="services" class="services-section">
             <div class="container">
-                <h2>Meus Serviços</h2>
+                <h2>Nossos Serviços</h2>
                 <div class="service-cards">
                     <div class="card">
+                        <h3>Terapia Individual</h3>
+                        <p>Atendimento psicológico individualizado para adultos, adolescentes e crianças, focado em questões como ansiedade, depressão, estresse, fobias e transtornos de humor.</p>
+                    </div>
+                    <div class="card">
                         <h3>Terapia Cognitivo Comportamental (TCC)</h3>
-                        <p>A TCC é uma abordagem terapêutica focada em identificar e modificar padrões de pensamento e comportamento disfuncionais que contribuem para o sofrimento emocional. Ideal para ansiedade, depressão, fobias, transtornos alimentares, entre outros.</p>
+                        <p>Abordagem terapêutica que auxilia na identificação e modificação de padrões de pensamento e comportamento disfuncionais, promovendo mudanças positivas na sua vida.</p>
                     </div>
                     <div class="card">
-                        <h3>Atendimento Individual</h3>
-                        <p>Sessões personalizadas para adultos e adolescentes que buscam autoconhecimento, resolução de conflitos, manejo de estresse, desenvolvimento de habilidades sociais e emocionais, e superação de desafios pessoais.</p>
+                        <h3>Orientação Parental</h3>
+                        <p>Suporte e estratégias para pais e cuidadores lidarem com desafios da educação e desenvolvimento de crianças e adolescentes.</p>
                     </div>
                     <div class="card">
-                        <h3>Orientação e Aconselhamento</h3>
-                        <p>Suporte psicológico para momentos de transição, tomada de decisões, luto, dificuldades de relacionamento e outras situações que demandem um olhar profissional e acolhedor.</p>
+                        <h3>Desenvolvimento Pessoal</h3>
+                        <p>Sessões para impulsionar o autoconhecimento, a autoestima, habilidades sociais e o desenvolvimento de todo o seu potencial.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="depoimentos" class="testimonials">
+        <section id="testimonials" class="testimonials-section">
             <div class="container">
-                <h2>O que dizem os pacientes</h2>
+                <h2>O que dizem sobre nós</h2>
                 <div class="testimonial-slider">
                     <div class="testimonial-item">
-                        <p>"A Albaniza me ajudou a ver a vida de uma nova perspectiva. Sou muito grata pelo apoio e profissionalismo!"</p>
-                        <span>- Ana P.</span>
+                        <p>"A Albaniza me ajudou muito a superar meus medos e ansiedades. Sou muito grata!"</p>
+                        <h4>- Maria Silva</h4>
                     </div>
                     <div class="testimonial-item">
-                        <p>"Um espaço de acolhimento e escuta. As sessões me proporcionaram um autoconhecimento profundo e real."</p>
-                        <span>- Carlos R.</span>
+                        <p>"Um espaço de acolhimento e profissionalismo. Recomendo muito o trabalho da Albaniza."</p>
+                        <h4>- João Santos</h4>
                     </div>
                     <div class="testimonial-item">
-                        <p>"Excelente profissional! A TCC realmente transformou minha forma de lidar com a ansiedade."</p>
-                        <span>- Sofia M.</span>
+                        <p>"Pude ver uma grande melhora na minha qualidade de vida após iniciar a terapia."</p>
+                        <h4>- Ana Costa</h4>
                     </div>
                 </div>
                 <div class="slider-dots"></div>
             </div>
         </section>
 
-        <section id="contato" class="contact">
+        <section id="blog" class="blog-section">
+            <div class="container">
+                <h2>Nosso Blog</h2>
+                <div class="blog-posts">
+                    <article class="post-card">
+                        <h3>Desvendando a Ansiedade: Dicas para Lidar com o Estresse do Dia a Dia</h3>
+                        <p>A ansiedade é um mal que aflige muitos na sociedade moderna. Conheça estratégias eficazes para gerenciar o estresse e viver com mais tranquilidade.</p>
+                        <a href="#" class="read-more">Leia Mais</a>
+                    </article>
+                    <article class="post-card">
+                        <h3>A Importância do Autocuidado na Saúde Mental</h3>
+                        <p>Entenda como pequenas atitudes de autocuidado podem fazer uma grande diferença na sua saúde mental e bem-estar geral.</p>
+                        <a href="#" class="read-more">Leia Mais</a>
+                    </article>
+                    <article class="post-card">
+                        <h3>TCC: Como a Terapia Cognitivo Comportamental Pode Transformar Sua Vida</h3>
+                        <p>Descubra os princípios da TCC e como essa abordagem pode te ajudar a reestruturar pensamentos e comportamentos negativos.</p>
+                        <a href="#" class="read-more">Leia Mais</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
             <div class="container">
                 <h2>Entre em Contato</h2>
-                <p>Para agendar sua consulta ou tirar suas dúvidas, entre em contato através dos canais abaixo:</p>
                 <div class="contact-info">
+                    <p>Agende sua consulta ou tire suas dúvidas. Estou à disposição para te ajudar!</p>
                     <p><strong>Telefone/WhatsApp:</strong> <a href="https://wa.me/5584996635699" target="_blank">(84) 99663-5699</a></p>
-                    <p><strong>Email:</strong> <a href="mailto:contato@espacoequilibriomental.com.br">contato@espacoequilibriomental.com.br</a> (exemplo, substitua pelo real)</p>
-                    <p><strong>Endereço:</strong> (Se houver um endereço físico, adicione aqui)</p>
+                    <p><strong>Email:</strong> <a href="mailto:contato@espacoequilibriomental.com.br">contato@espacoequilibriomental.com.br</a> (exemplo de email)</p>
+                    <p><strong>Endereço:</strong> (Inserir endereço físico da clínica, se houver)</p>
                 </div>
-                <button class="btn-primary" onclick="window.open('https://wa.me/5584996635699', '_blank')">Agendar Consulta via WhatsApp</button>
+                <form class="contact-form">
+                    <input type="text" placeholder="Seu Nome" required>
+                    <input type="email" placeholder="Seu Email" required>
+                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                    <button type="submit" class="btn">Enviar Mensagem</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 Espaço Equilíbrio Mental. Todos os direitos reservados. Psicóloga Albaniza Gomes - CRP: 17/4219</p>
+            <p>&copy; 2025 Espaço Equilíbrio Mental. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram"></a>
+                <a href="#" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook"></a>
+                <a href="https://wa.me/5584996635699" target="_blank"><img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp"></a>
+            </div>
         </div>
     </footer>
 
