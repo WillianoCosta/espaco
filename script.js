@@ -1,55 +1,77 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Menu responsivo
-    const mobileMenu = document.getElementById('mobile-menu');
-    const nav = document.querySelector('nav');
-    const navLinks = document.querySelectorAll('nav ul li a');
+document.addEventListener('DOMContentLoaded', () => {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-    mobileMenu.addEventListener('click', () => {
-        nav.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-    });
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
 
-    // Fechar menu ao clicar em um link (mobile)
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                mobileMenu.classList.remove('active');
+            // Close mobile menu after clicking a link
+            if (window.innerWidth <= 768) {
+                const nav = document.querySelector('.nav-links');
+                const burger = document.querySelector('.burger');
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                document.querySelectorAll('.nav-links li').forEach((link, index) => {
+                    link.style.animation = '';
+                });
             }
         });
     });
 
-    // Slider de depoimentos
+    // Mobile Navigation Toggle
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+
+    burger.addEventListener('click', () => {
+        // Toggle Nav
+        nav.classList.toggle('nav-active');
+
+        // Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+            }
+        });
+
+        // Burger Animation
+        burger.classList.toggle('toggle');
+    });
+
+    // Testimonial Slider
     const testimonialItems = document.querySelectorAll('.testimonial-item');
     const sliderDotsContainer = document.querySelector('.slider-dots');
-    let currentIndex = 0;
+    let currentSlide = 0;
 
-    function showTestimonial(index) {
+    function showSlide(index) {
         testimonialItems.forEach((item, i) => {
             item.classList.remove('active');
             if (i === index) {
                 item.classList.add('active');
             }
         });
-
         updateDots(index);
     }
 
     function createDots() {
-        testimonialItems.forEach((_, i) => {
+        testimonialItems.forEach((_, index) => {
             const dot = document.createElement('span');
             dot.classList.add('dot');
             dot.addEventListener('click', () => {
-                currentIndex = i;
-                showTestimonial(currentIndex);
+                currentSlide = index;
+                showSlide(currentSlide);
             });
             sliderDotsContainer.appendChild(dot);
         });
     }
 
     function updateDots(index) {
-        const dots = document.querySelectorAll('.dot');
-        dots.forEach((dot, i) => {
+        document.querySelectorAll('.dot').forEach((dot, i) => {
             dot.classList.remove('active');
             if (i === index) {
                 dot.classList.add('active');
@@ -57,27 +79,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function nextTestimonial() {
-        currentIndex = (currentIndex + 1) % testimonialItems.length;
-        showTestimonial(currentIndex);
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % testimonialItems.length;
+        showSlide(currentSlide);
     }
 
+    // Initialize slider
     if (testimonialItems.length > 0) {
         createDots();
-        showTestimonial(currentIndex);
-        setInterval(nextTestimonial, 7000); // Troca de depoimento a cada 7 segundos
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
     }
-
-    // Efeito de scroll para o header
-    const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)'; // Quase preto transparente
-            header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
-        } else {
-            header.style.backgroundColor = 'var(--color-black)';
-            header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
-        }
-    });
-
 });
