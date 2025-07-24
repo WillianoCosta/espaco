@@ -1,61 +1,83 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-list li a');
+document.addEventListener('DOMContentLoaded', function() {
+    // Menu responsivo
+    const mobileMenu = document.getElementById('mobile-menu');
+    const nav = document.querySelector('nav');
+    const navLinks = document.querySelectorAll('nav ul li a');
 
-    // Toggle menu para dispositivos móveis
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
+    mobileMenu.addEventListener('click', () => {
+        nav.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    });
 
-    // Fechar o menu ao clicar em um link (para dispositivos móveis)
+    // Fechar menu ao clicar em um link (mobile)
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                mobileMenu.classList.remove('active');
             }
         });
     });
 
-    // Animação de rolagem suave para links de âncora
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+    // Slider de depoimentos
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const sliderDotsContainer = document.querySelector('.slider-dots');
+    let currentIndex = 0;
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+    function showTestimonial(index) {
+        testimonialItems.forEach((item, i) => {
+            item.classList.remove('active');
+            if (i === index) {
+                item.classList.add('active');
+            }
+        });
+
+        updateDots(index);
+    }
+
+    function createDots() {
+        testimonialItems.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => {
+                currentIndex = i;
+                showTestimonial(currentIndex);
             });
+            sliderDotsContainer.appendChild(dot);
         });
-    });
+    }
 
-    // Exemplo de validação de formulário (simples)
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Impede o envio padrão do formulário
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            if (name === '' || email === '' || message === '') {
-                alert('Por favor, preencha todos os campos!');
-            } else if (!isValidEmail(email)) {
-                alert('Por favor, insira um e-mail válido!');
-            } else {
-                alert('Mensagem enviada com sucesso! Em breve entraremos em contato.');
-                contactForm.reset(); // Limpa o formulário
-                // Aqui você pode adicionar lógica para enviar os dados para um servidor
+    function updateDots(index) {
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.classList.remove('active');
+            if (i === index) {
+                dot.classList.add('active');
             }
         });
     }
 
-    function isValidEmail(email) {
-        // Expressão regular simples para validação de e-mail
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    function nextTestimonial() {
+        currentIndex = (currentIndex + 1) % testimonialItems.length;
+        showTestimonial(currentIndex);
     }
+
+    if (testimonialItems.length > 0) {
+        createDots();
+        showTestimonial(currentIndex);
+        setInterval(nextTestimonial, 7000); // Troca de depoimento a cada 7 segundos
+    }
+
+    // Efeito de scroll para o header
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.style.backgroundColor = 'rgba(26, 26, 26, 0.95)'; // Quase preto transparente
+            header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        } else {
+            header.style.backgroundColor = 'var(--color-black)';
+            header.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+        }
+    });
+
 });
