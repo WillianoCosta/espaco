@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadingMessage.classList.add('active');
 
         // Limpa os campos do formulário IMEDIATAMENTE após o envio
+        // e.preventDefault(); // Esta linha não é necessária se target="hidden_iframe" for usado corretamente
         contactForm.reset();
 
         // Configura o handler para quando o iframe terminar de carregar (resposta do Apps Script)
