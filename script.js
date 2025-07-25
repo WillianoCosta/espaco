@@ -90,9 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide);
         setInterval(nextSlide, 5000); // Change slide every 5 seconds
     }
-});
-// Mensagem de alerta após envio do formulário
-let submitted = false;
-document.querySelector('.contact-form').addEventListener('submit', function() {
-    submitted = true;
+
+    // --- Nova funcionalidade para o Formulário de Contato ---
+    const contactForm = document.querySelector('.contact-form');
+    const loadingMessage = document.getElementById('loading-message');
+    const hiddenIframe = document.getElementById('hidden_iframe');
+
+    contactForm.addEventListener('submit', function(e) {
+        // Exibe a mensagem de "Aguarde"
+        loadingMessage.classList.add('active');
+
+        // Limpa os campos do formulário IMEDIATAMENTE após o envio
+        contactForm.reset();
+
+        // Configura o handler para quando o iframe terminar de carregar (resposta do Apps Script)
+        hiddenIframe.onload = function() {
+            loadingMessage.classList.remove('active'); // Esconde a mensagem de "Aguarde"
+            alert('Sua mensagem foi enviada com sucesso!'); // Exibe a confirmação
+            hiddenIframe.onload = null; // Limpa o handler para evitar múltiplos disparos
+        };
+    });
 });
