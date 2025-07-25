@@ -85,16 +85,23 @@ nav ul li a:hover {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* Remova ou modifique o estilo que criava a cor cinza na seção inicial */
 .hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518655823759-d89bf55d518a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-    color: var(--text-light);
-    text-align: center;
-    padding: 150px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 60vh;
+    /* Exemplo: Se você tinha background-color: gray; remova-o ou substitua-o */
+    background-color: transparent; /* ou outra cor se desejar */
+    /* Outros estilos existentes para .hero-section */
+    position: relative; /* Pode ser necessário para posicionar a imagem */
+    overflow: hidden; /* Para garantir que a imagem não transborde */
+}
+
+.hero-image {
+    width: 100%; /* Faz a imagem preencher a largura total do contêiner */
+    height: 100%; /* Faz a imagem preencher a altura total do contêiner */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+    position: absolute; /* Posiciona a imagem absolutamente dentro de .hero-section */
+    top: 0;
+    left: 0;
+    z-index: -1; /* Coloca a imagem atrás do conteúdo da seção */
 }
 
 .hero-content h1 {
@@ -254,7 +261,6 @@ h2::after {
 
 .testimonials-section h2 {
     color: var(--text-light);
-    color: #000000e1;
 }
 
 .testimonial-slider {
@@ -263,7 +269,7 @@ h2::after {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
-    background-color: rgba(12, 12, 12, 0.479);
+    background-color: rgba(255, 255, 255, 0.05);
     padding: 30px;
 }
 
@@ -560,4 +566,44 @@ footer .container {
     .social-links {
         margin-top: 10px;
     }
+}
+/* Estilos para a mensagem de carregamento */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente escuro */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Acima de tudo */
+    color: var(--text-light);
+    font-size: 1.5em;
+    font-weight: 600;
+    opacity: 0; /* Começa invisível */
+    visibility: hidden; /* Começa oculto */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid var(--primary-color); /* Cor do spinner */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite; /* Animação de giro */
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
