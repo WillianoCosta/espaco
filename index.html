@@ -32,7 +32,9 @@
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
+        <div class="hero-section">
+    <img src="https://geekteacher.net/wp-content/uploads/2022/02/lts-analisis-clinicos-Psicologia.jpeg" alt="Descrição da imagem" class="hero-image">
+    </div>
             <div class="container">
                 <div class="hero-content">
                     <h1>Bem-vindo ao Espaço Equilíbrio Mental</h1>
@@ -136,12 +138,13 @@
                     <p><strong>Email:</strong> <a href="mailto:contato@espacoequilibriomental.com.br">contato@espacoequilibriomental.com.br</a> (exemplo de email)</p>
                     <p><strong>Endereço:</strong> (Inserir endereço físico da clínica, se houver)</p>
                 </div>
-                <form class="contact-form">
-                    <input type="text" placeholder="Seu Nome" required>
-                    <input type="email" placeholder="Seu Email" required>
-                    <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
-                    <button type="submit" class="btn">Enviar Mensagem</button>
-                </form>
+                <form class="contact-form" action="https://script.google.com/macros/s/AKfycbyTh2Ic0URBrazaY7-_15wGcuXSwYMI9L7r3Rh6X4djL8GqXqUAx8VxabUbYz2lcMP7/exec" method="POST" target="hidden_iframe">
+    <input type="text" name="nome" placeholder="Seu Nome" required>
+    <input type="email" name="email" placeholder="Seu Email" required>
+    <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required></textarea>
+    <button type="submit" class="btn">Enviar Mensagem</button>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {alert('Sua mensagem foi enviada com sucesso!');}"></iframe>
+</form>
             </div>
         </section>
     </main>
