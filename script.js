@@ -91,3 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setInterval(nextSlide, 5000); // Change slide every 5 seconds
     }
 });
+// Mensagem de alerta após envio do formulário
+let submitted = false;
+document.querySelector('.contact-form').addEventListener('submit', function() {
+    submitted = true;
+});
